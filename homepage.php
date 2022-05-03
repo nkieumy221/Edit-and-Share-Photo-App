@@ -20,47 +20,15 @@
     <!-- Icon -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <!-- Css -->
+    <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/homepage.css">
 </head>
 <body>
     <div class="container-fluid">
-        <div class="header fixed-top">
-            <div class="logo mr-3">
-                <img src="assets/img/logoleaf.png" alt="" class="logo mt-2" width="25">
-            </div>
-            <div class="mr-2">
-                <div class="btn homepage-btn">
-                    <a href="homepage.php" class="homepage-link">Homepage</a>
-                </div>
-            </div>
-            <div class="mr-4 search">
-                <form>
-                    <div class="input-group  input-search">
-                        <div class="input-group-prepend ">
-                            <span class="input-group-text search-icon">
-                                <i class="fas fa-search"></i>
-                            </span>
-                        </div>
-                        <input type="text" class="form-control" placeholder="Search">
-                    </div>
-                </form>
-            </div>
-            <div class="mr-4 notifi">
-                <div class="notifi-btn header-icon">
-                    <i class="fas fa-solid fa-bell"></i>
-                </div>
-            </div>
-            <div class="mr-4 add_img">
-                <a href="editImg.php" class="add_img-btn header-icon">
-                    <i class="fas fa-solid fa-plus"></i>
-                </a>
-            </div>
-            <div class="profile">
-                <a href="" class="profile-btn header-icon">
-                    <i class="fas fa-solid fa-user"></i>
-                </a>
-            </div>
-        </div>
+        
+        <?php
+            include('./inc/header.php'); 
+        ?>
         <div class="body">
             <div class="row list-img">
                 <div class="col-3 img-col">
@@ -69,18 +37,23 @@
                         while($img = $imglist->fetch_assoc()){
 
                     ?>
-                    <a href="" class="img-item">
+                    <a href="imgdetail.php?imgId=<?= $img['ID'] ?>" class="img-item">
                         <img src="assets/img/<?= $img['ImgName'] ?>" alt="" class="image">
+                        <?php
+                            $IdUser = $img['IDUser'];
+                            $userinfor = $accountClass->showInfoUser($IdUser);
+                            while($user = $userinfor->fetch_assoc()){
+                        ?>
                         <div class="user-img-infor">
                             <div class="user-img-avata">
-                                <img src="assets/img/user1.jpg" class="">
+                                <img src="assets/img/<?= $user['UserImg'] ?>" class="">
                             </div>
-                            <div class="user-name-infor">nanami</div>
+                            <div class="user-name-infor"><?= $user['UserName'] ?></div>
                         </div>
+                        <?php }?>
                     </a>
                     <?php } 
-                            
-                        ?>            
+                    ?>            
                 </div>
                 <div class="col-3 img-col">
                 <?php
@@ -88,14 +61,20 @@
                         while($img = $imglist->fetch_assoc()){
 
                     ?>
-                    <a href="" class="img-item">
+                    <a href="imgdetail.php?imgId=<?= $img['ID'] ?>" class="img-item">
                         <img src="assets/img/<?= $img['ImgName'] ?>" alt="" class="image">
+                        <?php
+                            $IdUser = $img['IDUser'];
+                            $userinfor = $accountClass->showInfoUser($IdUser);
+                            while($user = $userinfor->fetch_assoc()){
+                        ?>
                         <div class="user-img-infor">
                             <div class="user-img-avata">
-                                <img src="assets/img/user1.jpg" class="">
+                                <img src="assets/img/<?= $user['UserImg'] ?>" class="">
                             </div>
-                            <div class="user-name-infor">nanami</div>
+                            <div class="user-name-infor"><?= $user['UserName'] ?></div>
                         </div>
+                        <?php }?>
                     </a>
                     <?php } 
                             
@@ -107,14 +86,20 @@
                         while($img = $imglist->fetch_assoc()){
 
                     ?>
-                    <a href="" class="img-item">
+                    <a href="imgdetail.php?imgId=<?= $img['ID'] ?>" class="img-item">
                         <img src="assets/img/<?= $img['ImgName'] ?>" alt="" class="image">
+                        <?php
+                            $IdUser = $img['IDUser'];
+                            $userinfor = $accountClass->showInfoUser($IdUser);
+                            while($user = $userinfor->fetch_assoc()){
+                        ?>
                         <div class="user-img-infor">
                             <div class="user-img-avata">
-                                <img src="assets/img/user1.jpg" class="">
+                                <img src="assets/img/<?= $user['UserImg'] ?>" class="">
                             </div>
-                            <div class="user-name-infor">nanami</div>
+                            <div class="user-name-infor"><?= $user['UserName'] ?></div>
                         </div>
+                        <?php }?>
                     </a>
                     <?php } 
                     
@@ -125,14 +110,20 @@
                         $imglist = $imgClass->showListImg(4);
                         while($img = $imglist->fetch_assoc()){
                     ?>
-                    <a href="" class="img-item">
+                    <a href="imgdetail.php?imgId=<?= $img['ID'] ?>" class="img-item">
                         <img src="assets/img/<?= $img['ImgName'] ?>" alt="" class="image">
+                        <?php
+                            $IdUser = $img['IDUser'];
+                            $userinfor = $accountClass->showInfoUser($IdUser);
+                            while($user = $userinfor->fetch_assoc()){
+                        ?>
                         <div class="user-img-infor">
                             <div class="user-img-avata">
-                                <img src="assets/img/user1.jpg" class="">
+                                <img src="assets/img/<?= $user['UserImg'] ?>" class="">
                             </div>
-                            <div class="user-name-infor">nanami</div>
+                            <div class="user-name-infor"><?= $user['UserName'] ?></div>
                         </div>
+                        <?php }?>
                     </a>
                     <?php } 
 

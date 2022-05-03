@@ -32,6 +32,7 @@
                 if ($result != false) {
                     $value = $result->fetch_assoc();
                     Session::set('login', true);
+                    Session::set('UserID', $value['ID']);
                     Session::set('UserName', $value['UserName']);
                     header("Location: homepage.php");
                 } else {

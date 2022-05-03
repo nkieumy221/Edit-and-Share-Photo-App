@@ -5,7 +5,8 @@
     <meta name="author" content="Yi-Nung Yeh">
     <link href='https://fonts.googleapis.com/css?family=Walter+Turncoat|Source+Sans+Pro' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Permanent+Marker|Fredericka+the+Great|Fontdiner+Swanky|Freckle+Face|Finger+Paint|Cabin+Sketch|Love+Ya+Like+A+Sister' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    
     <link rel="stylesheet" href="assets/css/if.css">
     <title>Image Processing & Filters APP</title>
     <!-- Bootstrap -->
@@ -42,15 +43,35 @@
             kepcsere();
         });
     </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
    </head>
    <body>
     <script src="assets/js/if.js" type="text/javascript"></script>
     <div id="sitebody " class="container-fluid">
         <div id="header">
             <div class="header-top row frame">
-                <button class="col-1 btn btn-primary">Hủy</button>
-                <h1 class="col-10"><i class=" fa fa-camera"></i>Image Processing & Filters APP</h1>
-                <button class="col-1 btn btn-primary float-right"><a href="" class="text-white" download="converted_image.png" id="download">Download</a></button>
+                <div class="col-2 ">
+                    <button class="btn-header">
+                        <a href="homepage.php" ><i class="fa-solid fa-arrow-left"></i></a>
+                    </button>
+                </div>
+                <h1 class="col-8">
+                    <img src="assets/img/logoleaf.png" alt="" class="logo " width="40">
+                </h1>
+                <div class="col-2 ">
+                    <div class="list-btn">
+                        <button class="btn-header">
+                            <a href="" download="converted_image.png" id="download">
+                                <i class="fa-solid fa-download"></i>
+                            </a>
+                        </button>
+                        <button class="btn-header">
+                            <a href="" id="post">
+                                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                            </a>
+                        </button>
+                    </div>
+                </div>
             </div>
             <div class="row frame">
                 <label class="upload-label">Upload Image File:</label>
@@ -157,7 +178,6 @@
                     img.height=canvas.height;
                 }
                 img.src = event.target.result;
-                console.log(img.src);  
             }
             reader.readAsDataURL(e.target.files[0]);   
             
@@ -189,11 +209,24 @@
             canvas.addEventListener('mousemove', zoom);
         }
 
-
         let downloadBtn = document.querySelector("#download");
             downloadBtn.addEventListener("click", (e) => {
-            e.target.href = canvas.toDataURL("image/png");
+                e.target.href = canvas.toDataURL("image/png");
         })
+
+        let postBtn = document.querySelector("#post");
+            postBtn.addEventListener("click", (e) => {
+                data = canvas.toDataURL();
+                $.ajax({
+                    type: "POST",
+                    url: "saveimg.php",
+                    data: {
+                        imgBase64: data
+                    }
+                    // Sau khi gửi dữ liệu thành công thì sẽ thêm nút Đi tới link ảnh 
+                })
+            })
+        
     </script>
   </body>
 </html> 

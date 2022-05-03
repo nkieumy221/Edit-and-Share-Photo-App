@@ -6,7 +6,7 @@
     include_once($filepath.'/../helpers/format.php');
 ?>
 <?php 
-    class Image
+    class Account
     {
         private $db;
         private $fm; //format
@@ -16,14 +16,8 @@
             $this->fm = new Format();
         }
 
-        public function showListImg($typeImg) {
-            $query = "SELECT * FROM image WHERE TypeImg = $typeImg";
-            $result = $this->db->select($query);
-            return $result;
-        }
-
-        public function showImg($ID) {
-            $query = "SELECT * FROM Image WHERE ID = '$ID'";
+        public function showInfoUser($ID) {
+            $query = "SELECT * FROM account WHERE ID = '$ID'";
             $result = $this->db->select($query);
             return $result;
         }

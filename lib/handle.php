@@ -1,6 +1,7 @@
 <?php 
     include_once('lib/session.php'); 
     Session::init();
+    Session::checkSession();
 ?>
 <?php 
     include_once('lib/database.php');
@@ -14,5 +15,6 @@
     $fm = new Format();
 
     $imgClass = new Image();
+    $accountClass = new Account();
     
 ?>

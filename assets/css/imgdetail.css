@@ -1,0 +1,96 @@
+.img-detail {
+    box-shadow: rgb(0 0 0 / 10%) 0px 1px 20px 0px;
+    border-radius: 32px;
+    overflow: hidden;
+}
+
+.photo {
+    overflow: hidden;
+}
+
+.photo img{
+    height: 100%;
+    height: 634px;
+    margin: 0 -15px;
+}
+
+.infor-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.infor-header_left i {
+    font-size: 20px;
+    font-weight: 600;
+    margin-right: 30px;
+}
+
+.photo-infor {
+    padding: 40px;
+}
+
+.img-title {
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.users-img {
+    display: flex;
+    width: 100%;
+}
+
+.img-users img{
+    width: 50px;
+    border-radius: 50%;
+}
+
+.infor-users {
+    margin-left: 20px;
+    line-height: 24px;
+}
+
+.users-name {
+    font-weight: bold;
+}
+
+.users-follower {
+    font-size: 13px;
+}
+
+.btn-follow {
+    margin-left: 184px;
+}
+
+.btn-light {
+    border-radius: 25px; 
+    background-color: #efefef;
+    font-weight: bold;
+    padding: 10px 20px;
+}
+
+
+.review-item {
+    display: flex;
+    width: 100%;
+}
+
+.review-title {
+    font-weight: bold;
+}
+
+.input-comment input{
+    margin-left: 10px;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    padding: 24px;
+}
+
+.input-comment {
+    width: 436px;
+}
+
+.title-similar {
+    text-align:center;
+    font-size:24px; 
+    font-weight:bold;
+}
