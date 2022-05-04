@@ -1,6 +1,8 @@
 <?php
     // Gán dữ liệu nhân được và $img
     $img = $_POST['imgBase64']; 
+    $title = $_POST['title']; 
+    $userID = $_POST['userID']; 
     
     // Tìm kiếm và thay thế đường dẫn ảnh 
     $img = str_replace('data:image/png;base64,', '', $img);
@@ -23,7 +25,7 @@
     echo $fileName; 
 
     $conn = mysqli_connect("localhost","root","","imgapp");
-    $sql = "INSERT INTO Image(ImgName, IDUser, TypeImg) VALUES ('".$randName.".png', '1', '1' )";
+    $sql = "INSERT INTO Image(ImgName, IDUser, TypeImg, Title) VALUES ('".$randName.".png', '".$userID."', '1', '".$title."')";
     $kq = mysqli_query($conn,$sql);
     header("Location: homepage.php");
 ?>

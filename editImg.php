@@ -1,3 +1,6 @@
+<?php 
+    include_once('lib/handle.php'); 
+?>
 <!DOCTYPE HTML>
 <html>
   <head>
@@ -49,7 +52,7 @@
     <script src="assets/js/if.js" type="text/javascript"></script>
     <div id="sitebody " class="container-fluid">
         <div id="header">
-            <div class="header-top row frame">
+            <div class="header-top row ">
                 <div class="col-2 ">
                     <button class="btn-header">
                         <a href="homepage.php" ><i class="fa-solid fa-arrow-left"></i></a>
@@ -73,44 +76,31 @@
                     </div>
                 </div>
             </div>
-            <div class="row frame">
+            
+        </div>
+        <div class="row frame form-ipnut">
+            <div class="input-title">
+                <label class="upload-label">Enter Image Title:</label>
+                <input type="text" name="title" placeholder="Enter Image Title..." id="title" class="addcat__input">
+            </div>
+            <div class="upload-img">
                 <label class="upload-label">Upload Image File:</label>
                 <input class="hint" onclick="changeclass()" type="file" id="imageLoader" name="imageLoader"/><br>
-                <div class="list-filter">
-                    <div class="" id="btns">
-                        <button class="btnFilter" onclick="myFunction7()">Invert Color</button>
-                        <button class="btnFilter" onclick="myFunction8()">Grayscale</button>
-                        <button class="btnFilter" onclick="myFunction9()">Transparent</button>
-                        <button class="btnFilter" onclick="myFunction20()">Darken</button>
-                        <button class="btnFilter" onclick="myFunction16()">Sharpen</button>
-                        <button class="btnFilter" onclick="myFunction23()">Gaussian Blur</button>
-                        <button class="btnFilter" onclick="myFunction24()">Motion Blur</button>
-                        <button class="btnFilter" onclick="myFunction21()">Edge</button>
-                        <button class="btnFilter" onclick="myFunction25()">Edge2</button>
-                        <button class="btnFilter" onclick="myFunction26()">Contour</button>
-                        <button class="btnFilter" onclick="myFunction22()">Emboss</button>
-                        <button class="btnFilter" onclick="myFunction27()">Detail</button>
-                        <button class="btnFilter" onclick="myFunction28()">Smooth</button>
-                        <button class="btnFilter" onclick="myFunction29()">Sobel</button>
-                        <button class="btnFilter" onclick="myFunction18()">Carve</button>
-                        <button class="btnFilter" onclick="myFunction19()">Luminance</button>
-                        <button class="btnFilter" onclick="myFunction15()">Threshold</button>
-                        <button class="btnFilter" onclick="myFunction31()">Vintage</button>
-                        <button class="btnFilter" onclick="myFunction32()">Erosion</button>
-                        <button class="btnFilter" onclick="myFunction33()">Dilate</button>
-                        <button class="btnFilter" onclick="myFunction34()">Red <i class="fa fa-arrows-h"></i> Green</button>
-                        <button class="btnFilter" onclick="myFunction35()">Red <i class="fa fa-arrows-h"></i> Blue</button>
-                        <button class="btnFilter" onclick="myFunction36()">Green <i class="fa fa-arrows-h"></i> Blue</button>
-                        <button class="btnFilter" onclick="myFunction37()">Diffusion</button>
-                        <button class="btnFilter" onclick="myFunction38()">Comic</button>
-                    </div>          
-                </div>
             </div>
         </div>
-        <div class="row mt-2">   
+        <div class="row mt-3 ">   
             <div class="col-sm-9">
                 <div id="sidebar_left" class="">
-                    <div>
+                    <div class="sidebar_mini" id="btns">
+                            <button class="btn btn-outline-info mr-2" onclick="myFunction2()">
+                                <i class="fa-solid fa-up-down"></i>
+                            </button>
+                            <button class="btn btn-outline-info mr-2" onclick="myFunction3()">
+                                <i class="fa-solid fa-left-right"></i>
+                            </button>
+                            <button class="btn btn-outline-info mr-2 mt-2" onclick="handleClear()">Clear</button>
+                        </div>
+                    <div class="mt-2">
                         <canvas id="zoom" width="200" height="200"></canvas><br>
                         <label for="smoothbtn">
                             <input type="checkbox" name="smoothbtn" checked="checked" id="smoothbtn">
@@ -122,32 +112,74 @@
                 <div id="content"><canvas class="img-fluid" height="1000px" id="canvas"></canvas></div>
             </div>
             <div class="col-sm-3">
-                <div class="row">
-                    <div class="col-12 sidebar_mini" id="btns">
-                        <button class="btn btn-outline-info mr-2" onclick="myFunction2()">Flip Upside-Down</button>
-                        <button class="btn btn-outline-info mr-2" onclick="myFunction3()">Flip Horizontal</button>
-                        <button class="btn btn-outline-info mr-2 mt-2" onclick="handleClear()">Clear</button>
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#home">Filter</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#menu1">Điều chỉnh</a>
+                    </li>
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div class="tab-pane container fade " id="menu1">
+                        <div class="row">
+                            <div class="col-12" id="btns">
+                                <label for="brightness" class="form-label" >Brightness</label> <br>
+                                <input type="range" name="brightness" id="brightness" min="0" max="200"
+                                    step="1" value="100" onchange="brightness(this.value)" style="width: 100%;">
+                            </div>
+                            <div class="col-12" id="btns">
+                                <label for="cool" class="form-label">Cool</label> <br>
+                                <input type="range" name="cool" id="cool" min="0" max="200" 
+                                    step="1" value="100" onchange="toCool(this.value)" style="width: 100%;">
+                            </div>
+                            <div class="col-12" id="btns">
+                                <label for="warm" class="form-label">Warm</label> <br>
+                                <input type="range" name="warm" id="warm" min="0" max="200" 
+                                    step="1" value="100" onchange="toWarm(this.value)" style="width: 100%;">
+                            </div>
+                            <div class="col-12" id="btns">
+                                <label for="meanBlur" class="form-label">Blur</label> <br>
+                                <input type="range" name="meanBlur" id="meanBlur" min="0" max="51" 
+                                    step="1" value="0" onchange="toBlur(this.value)" style="width: 100%;">
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-12" id="btns">
-                        <label for="brightness" class="form-label" >Brightness</label> <br>
-                        <input type="range" name="brightness" id="brightness" min="0" max="200"
-                            step="1" value="100" onchange="brightness(this.value)" style="width: 100%;">
+                <div class="tab-pane container active" id="home">
+                    <div class="row frame">
+                        <div class="list-filter">
+                            <div class="" id="btns">
+                                <button class="btnFilter" onclick="myFunction7()">Invert Color</button>
+                                <button class="btnFilter" onclick="myFunction8()">Grayscale</button>
+                                <button class="btnFilter" onclick="myFunction9()">Transparent</button>
+                                <button class="btnFilter" onclick="myFunction20()">Darken</button>
+                                <button class="btnFilter" onclick="myFunction16()">Sharpen</button>
+                                <button class="btnFilter" onclick="myFunction23()">Gaussian Blur</button>
+                                <button class="btnFilter" onclick="myFunction24()">Motion Blur</button>
+                                <button class="btnFilter" onclick="myFunction21()">Edge</button>
+                                <button class="btnFilter" onclick="myFunction25()">Edge2</button>
+                                <button class="btnFilter" onclick="myFunction26()">Contour</button>
+                                <button class="btnFilter" onclick="myFunction22()">Emboss</button>
+                                <button class="btnFilter" onclick="myFunction27()">Detail</button>
+                                <button class="btnFilter" onclick="myFunction28()">Smooth</button>
+                                <button class="btnFilter" onclick="myFunction29()">Sobel</button>
+                                <button class="btnFilter" onclick="myFunction18()">Carve</button>
+                                <button class="btnFilter" onclick="myFunction19()">Luminance</button>
+                                <button class="btnFilter" onclick="myFunction15()">Threshold</button>
+                                <button class="btnFilter" onclick="myFunction31()">Vintage</button>
+                                <button class="btnFilter" onclick="myFunction32()">Erosion</button>
+                                <button class="btnFilter" onclick="myFunction33()">Dilate</button>
+                                <button class="btnFilter" onclick="myFunction34()">Red <i class="fa fa-arrows-h"></i> Green</button>
+                                <button class="btnFilter" onclick="myFunction35()">Red <i class="fa fa-arrows-h"></i> Blue</button>
+                                <button class="btnFilter" onclick="myFunction36()">Green <i class="fa fa-arrows-h"></i> Blue</button>
+                                <button class="btnFilter" onclick="myFunction37()">Diffusion</button>
+                                <button class="btnFilter" onclick="myFunction38()">Comic</button>
+                            </div>          
+                        </div>
                     </div>
-                    <div class="col-12" id="btns">
-                        <label for="cool" class="form-label">Cool</label> <br>
-                        <input type="range" name="cool" id="cool" min="0" max="200" 
-                            step="1" value="100" onchange="toCool(this.value)" style="width: 100%;">
-                    </div>
-                    <div class="col-12" id="btns">
-                        <label for="warm" class="form-label">Warm</label> <br>
-                        <input type="range" name="warm" id="warm" min="0" max="200" 
-                            step="1" value="100" onchange="toWarm(this.value)" style="width: 100%;">
-                    </div>
-                    <div class="col-12" id="btns">
-                        <label for="meanBlur" class="form-label">Blur</label> <br>
-                        <input type="range" name="meanBlur" id="meanBlur" min="0" max="51" 
-                            step="1" value="0" onchange="toBlur(this.value)" style="width: 100%;">
-                    </div>
+                </div>
                 </div>
             </div>
         </div>
@@ -155,6 +187,7 @@
     <script>
         var imageLoader = document.getElementById('imageLoader');
         imageLoader.addEventListener('change', handleImage, false);
+        var userId = '<?php echo Session::get('UserID'); ?>';
         var canvas=document.getElementById('canvas');
         var ctx=canvas.getContext('2d');
         var img;
@@ -213,18 +246,26 @@
             downloadBtn.addEventListener("click", (e) => {
                 e.target.href = canvas.toDataURL("image/png");
         })
-
+        
+        
+        
         let postBtn = document.querySelector("#post");
             postBtn.addEventListener("click", (e) => {
+                e.preventDefault();
                 data = canvas.toDataURL();
+                var titleValue = $("#title").val();
                 $.ajax({
                     type: "POST",
                     url: "saveimg.php",
                     data: {
-                        imgBase64: data
+                        imgBase64: data,
+                        title: titleValue,
+                        userID: userId
                     }
                     // Sau khi gửi dữ liệu thành công thì sẽ thêm nút Đi tới link ảnh 
-                })
+                }).done(function (data) {
+                    window.location.replace('/EditAndShareImgApp/homepage.php');
+                });
             })
         
     </script>

@@ -1,9 +1,7 @@
 <?php 
     include_once('lib/handle.php'); 
 ?>
-<?php 
-    
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,7 +28,7 @@
         ?>
         <div class="body">
             <?php
-                $IdUser = Session::get('UserID');;
+                $IdUser = Session::get('UserID');
                 $userinfor = $accountClass->showInfoUser($IdUser);
                 while($user = $userinfor->fetch_assoc()){
             ?>

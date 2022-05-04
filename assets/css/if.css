@@ -15,10 +15,11 @@ body{
   line-height:30px;
   color:#6d6875;
   margin: 5px 0;  
+  border-bottom: 3px solid #ccc;
 }
 
 .frame {
-  padding: 0 20px;
+  padding: 10px 20px;
 }
 
 .header-top>h1{
@@ -61,13 +62,30 @@ body{
   margin-right: 20px;
 }
 
-.upload-label{
-  font-weight:bold;
-  line-height:30px;
-  color:#6d6875;
-  padding-top: 2px;
-  margin-right: 5px;
+.form-ipnut {
+  display: flex;
+  flex-direction: column;
 }
+
+.input-title {
+  height: 54px;
+}
+
+.input-title input{
+  border-radius:10px;
+  width: 85%;
+  border: 1px solid #ccc;
+  height:50px;
+  padding: 0;
+  margin: 0;
+}
+
+.upload-label{
+  font-weight:500;
+  width: 160px;
+  color:#6d6875;
+}
+
 
 #sidebar_left{
   width:215px;
@@ -114,8 +132,7 @@ body{
   line-height: 16px;
   font-weight:bold;
   height: 38px;
-  width: 90px;
-  margin-right: 4px;
+  width: 86px;
   background-color: #ef989b;
   border: 0px solid #ffffff;
   color: #6d6875;
@@ -126,7 +143,7 @@ body{
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
   cursor: pointer;
-  border-radius: 2px;
+  border-radius: 8px;
 }
 
 .btnFilter:hover {
