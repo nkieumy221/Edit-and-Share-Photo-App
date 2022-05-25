@@ -1,7 +1,9 @@
 <?php 
     include_once('lib/handle.php'); 
 ?>
-
+<?php
+    $IdUser = Session::get('UserID');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +30,7 @@
         ?>
         <div class="body">
             <?php
-                $IdUser = Session::get('UserID');
+                
                 $userinfor = $accountClass->showInfoUser($IdUser);
                 while($user = $userinfor->fetch_assoc()){
             ?>
@@ -66,34 +68,35 @@
                 <div class="tab-content" id="nav-tabContent">
                     <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                         <div class="row">
-                            <div class="col-3 img-item">
-                                <img src="assets/img/meo1.jpg" alt="" class="img-fluid ">
-                            </div>
-                            <div class="col-3 img-item">
-                                <img src="assets/img/meo2.jpg" alt="" class="img-fluid ">
-                            </div>
-                            <div class="col-3 img-item">
-                                <img src="assets/img/meo3.jpg" alt="" class="img-fluid ">
-                            </div>
-                            <div class="col-3 img-item">
-                                <img src="assets/img/meo4.jpg" alt="" class="img-fluid ">
-                            </div>
+                            <?php
+                                $imglist = $imgClass->showImgOfUser($IdUser);
+                                while($img = $imglist->fetch_assoc()){
+                            ?>
+                                <a href="imgdetail.php?imgId=<?= $img['ID'] ?>" class="col-3 img-item">
+                                    <img src="assets/img/<?= $img['ImgName'] ?>" alt="" class="img-fluid ">
+                                
+                                </a>
+                            <?php 
+                                } 
+                            ?> 
                         </div>
                     </div>
                     <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
                         <div class="row">
-                            <div class="col-3 img-item">
-                                <img src="assets/img/meo4.jpg" alt="" class="img-fluid ">
-                            </div>
-                            <div class="col-3 img-item">
-                                <img src="assets/img/meo1.jpg" alt="" class="img-fluid ">
-                            </div>
-                            <div class="col-3 img-item">
-                                <img src="assets/img/meo3.jpg" alt="" class="img-fluid ">
-                            </div>
-                            <div class="col-3 img-item">
-                                <img src="assets/img/meo2.jpg" alt="" class="img-fluid ">
-                            </div>
+                            <?php
+                                $imglist = $imgClass->showImgWishlist($IdUser);
+                                while($imgs = $imglist->fetch_assoc()){
+                                    $imgId = $imgs["IDImg"];
+                                    $img = $imgClass->showImg($imgId);
+                                    while($row = $img->fetch_assoc()){
+                            ?>
+                            <a href="imgdetail.php?imgId=<?= $row['ID'] ?>" class="col-3 img-item">
+                                <img src="assets/img/<?= $row['ImgName'] ?>" alt="" class="img-fluid ">
+                                    </a>
+                            <?php 
+                                }
+                                } 
+                            ?> 
                         </div>
                     </div>
                 </div>

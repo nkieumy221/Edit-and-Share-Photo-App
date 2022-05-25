@@ -8,6 +8,11 @@
     } else {
         $id = $_GET['imgId'];
     } 
+    $IdUser = Session::get('UserID');
+    /* Xử lí yêu thích sản phẩm*/
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['wishlist'])) {
+        $insertWishlist = $imgClass->insertWishlist($id, $IdUser);
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,7 +56,16 @@
                                 <i class="fas fa-solid fa-arrow-up-from-bracket"></i>
                             </div>
                             <div class="infor-header_right">
-                                <button class="btn btn-danger">
+                                <form action="" method="post" class="form__wishlist" id="form1">
+                                    <?php 
+                                        if($IdUser){         
+                                    ?>
+                                        <input type="hidden" name="wishlist" value="" class="btn btn-heart">
+                                    <?php     
+                                        }
+                                    ?>
+                                </form>
+                                <button class="btn btn-danger" type="submit" name="wishlist" form="form1" value="Submit">
                                     <i class="fas fa-solid fa-heart"></i>
                                 </button>
                             </div>

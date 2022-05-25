@@ -244,7 +244,7 @@
 
         let downloadBtn = document.querySelector("#download");
             downloadBtn.addEventListener("click", (e) => {
-                e.target.href = canvas.toDataURL("image/png");
+                window.location = canvas.toDataURL("image/png");
         })
         
         

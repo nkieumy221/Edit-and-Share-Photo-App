@@ -41,7 +41,7 @@
         ctx.scale(xs, ys);
         ctx.drawImage(img, ulx,uly, img.width, img.height);
     }
-
+    /* Invert Color */
     function myFunction7()
     {
         
@@ -57,6 +57,8 @@
         }
         ctx.putImageData(imageData,0,0);
     }
+
+    /* Grayscale */
     function myFunction8()
     {
         
@@ -73,6 +75,8 @@
         }
         ctx.putImageData(imageData,0,0);
     }
+
+    /* Vintage */
     function myFunction31()
     {
         
@@ -89,6 +93,8 @@
         }
         ctx.putImageData(imageData,0,0);
     }
+
+    /* Transparent */
     function myFunction9()
     {
         
@@ -216,7 +222,7 @@
         ctx.putImageData(imageData,0,0);
     }
 
-
+    /* Threshold */
     function myFunction15()
     {
         
@@ -235,6 +241,8 @@
         }
         ctx.putImageData(imageData,0,0);
     }
+
+    /* Sharpen */
     function myFunction16()
     {
         
@@ -286,6 +294,8 @@
         }
         ctx.putImageData(output,0,0);
     }
+
+
     function myFunction17()
     {
         
@@ -388,6 +398,7 @@
         ctx.putImageData(output,0,0);
     }
 
+    /* Carve */
     function myFunction18()
     {
         
@@ -439,6 +450,8 @@
         }
         ctx.putImageData(output,0,0);
     }
+
+    /* Luminance */
     function myFunction19()
     {
         
@@ -491,6 +504,8 @@
         }
         ctx.putImageData(output,0,0);
     }
+
+    /* Darken */
     function myFunction20()
     {
         
@@ -542,6 +557,8 @@
         }
         ctx.putImageData(output,0,0);
     }
+
+    /* Edge */
     function myFunction21()
     {
         
@@ -593,6 +610,8 @@
         }
         ctx.putImageData(output,0,0);
     }
+
+    /* Emboss */
     function myFunction22()
     {
         
@@ -644,6 +663,8 @@
         }
         ctx.putImageData(output,0,0);
     }
+
+    /* Gaussian Blur */
     function myFunction23()
     {
         
@@ -695,6 +716,8 @@
         }
         ctx.putImageData(output,0,0);
     }
+
+    /* Motion Blur */
     function myFunction24()
     {
         
@@ -754,6 +777,8 @@
         }
         ctx.putImageData(output,0,0);
     }
+
+    /* Edge2 */
     function myFunction25()
     {
         
@@ -805,6 +830,8 @@
         }
         ctx.putImageData(output,0,0);
     }
+
+    /* Contour */
     function myFunction26()
     {
         
@@ -856,6 +883,8 @@
         }
         ctx.putImageData(output,0,0);
     }
+
+    /* Detail */
     function myFunction27()
     {
         
@@ -907,6 +936,8 @@
         }
         ctx.putImageData(output,0,0);
     }
+
+    /* Smooth */
     function myFunction28()
     {
         
@@ -958,6 +989,8 @@
         }
         ctx.putImageData(output,0,0);
     }
+
+    /* Sobel */
     function myFunction29()
     {
         
@@ -1016,6 +1049,8 @@
         }
         ctx.putImageData(output,0,0);
     }
+
+    /*  */
     function myFunction30()
     {
         
@@ -1067,6 +1102,8 @@
         }
         ctx.putImageData(output,0,0);
     }
+
+    /* Erosion */
     function myFunction32()
     {
         
@@ -1121,6 +1158,8 @@
         }
         ctx.putImageData(output,0,0);
     }
+
+    /* Dilate */
     function myFunction33()
     {
         
@@ -1175,6 +1214,8 @@
         }
         ctx.putImageData(output,0,0);
     }
+
+    /* Red to green */
     function myFunction34()
     {
         
@@ -1226,6 +1267,8 @@
         }
         ctx.putImageData(output,0,0);
     }
+
+    /* Red to blue */
     function myFunction35()
     {
         
@@ -1277,6 +1320,8 @@
         }
         ctx.putImageData(output,0,0);
     }
+
+    /* Green to bluw */
     function myFunction36()
     {
         
@@ -1328,6 +1373,8 @@
         }
         ctx.putImageData(output,0,0);
     }
+
+    /* Diffusion */
     function myFunction37()
     {
         
@@ -1381,6 +1428,8 @@
         }
         ctx.putImageData(output,0,0);
     }
+
+    /* Comic */
     function myFunction38()
     {
         
